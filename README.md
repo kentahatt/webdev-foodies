@@ -4,7 +4,7 @@ Before you submit your project, modify the following table to include everyone's
 
 | Group Member Name          | GitHub Username    |
 | :------------------------- |:------------------:|
-| Eric CB-Lamontagne         | <github_username1> |
+| Eric CB-Lamontagne         | caspeer1           |
 | Kenta Hattori              | callmekenta        |
 | Manmeet Choudhary          | <github_username3> |
 | <first_name4> <last_name4> | <github_username4> |
