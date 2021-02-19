@@ -6,7 +6,7 @@ Before you submit your project, modify the following table to include everyone's
 | :------------------------- |:------------------:|
 | Eric CB-Lamontagne         | caspeer1           |
 | Kenta Hattori              | callmekenta        |
-| Manmeet Choudhary          | <github_username3> |
+| Manmeet Choudhary          | ManmeetChoudhary   |
 | <first_name4> <last_name4> | <github_username4> |
 | <first_name5> <last_name5> | <github_username5> |
 
