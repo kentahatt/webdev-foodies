@@ -1,0 +1,83 @@
+.header{
+    background-color:rgb(255, 241, 179);
+    height: 6rem;
+}
+.header > p {
+    margin-top: 2.3rem;
+    margin-left: 2rem;
+    scale: 150%;
+}
+.header > img {
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+.header > div {
+    display: block;
+    margin-left: 86.5%;
+}
+.header > div > button {
+    border-color:rgb(189, 174, 38);
+    border-radius: 5px;
+    margin-top: 2.4rem;
+}
+.header > img, 
+.header > button,
+.header > p {
+    float: left;
+}
+#body {
+    height: 54.1rem;
+    background-image: url('../images/loginbackground1.png');
+}
+#logindiv {
+    display: grid;
+    grid-template-rows: 4rem;
+    position: absolute;
+    margin-top: 5rem;
+    margin-left: 47.5rem;
+    width: 25rem;
+    height: 40rem;
+    border-radius: 5px;
+    background-color: white;
+    background-image: url('../images/logindivbackground.png');
+}
+.loginheader {
+    font-size: 200%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#logindiv > p {
+    font-size: 200%;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+#logindiv > div {
+    font-size: 125%;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+#coloured {
+    color:rgb(212, 143, 78);
+}
+#signIn {
+    margin-top: -5rem;
+    margin-left: 3rem;
+}
+#login {
+    text-align: center;
+    border-radius: 20px;
+    margin-top: 13rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20rem;
+    height: 60px;
+    background-color: rgb(94, 228, 94);
+}
+#login > a {
+    font-size: 200%;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
