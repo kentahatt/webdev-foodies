@@ -4,7 +4,12 @@
   "description": "node js for cheese mart (final project)",
   "main": "hub.js",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mongod": "^2.0.0",
+    "mongoose": "^5.12.4",
+    "nodemon": "^2.0.7",
     "socket.io": "^4.0.1"
   },
   "devDependencies": {},
