@@ -12,7 +12,7 @@ function login(){
 
     let divInfo = document.createElement('div');
     let infoOne = document.createElement('p');
-    infoOne.innerHTML = "Welcome to Cheese Mark";
+    infoOne.innerHTML = "Welcome to Foodies!";
     divInfo.appendChild(infoOne);
 
     let infoTwo = document.createElement('p');
@@ -60,7 +60,7 @@ function login(){
     signButton.setAttribute('id', 'login');
     let link = document.createElement('a');
     link.innerHTML = 'Login';
-    link.setAttribute('href', 'Login.html');
+    link.setAttribute('href', 'store.html');
     signButton.appendChild(link);
     div.appendChild(signButton);
 
@@ -81,7 +81,7 @@ function createAccount(){
 
     let divInfo = document.createElement('div');
     let infoOne = document.createElement('p');
-    infoOne.innerHTML = "Welcome to Cheese Mark";
+    infoOne.innerHTML = "Welcome to Foodies!";
     divInfo.appendChild(infoOne);
 
     let infoTwo = document.createElement('p');
@@ -129,7 +129,7 @@ function createAccount(){
     signButton.setAttribute('id', 'login');
     let link = document.createElement('a');
     link.innerHTML = 'Create Account';
-    link.setAttribute('href', 'Login.html');
+    link.setAttribute('href', 'store.html');
     signButton.appendChild(link);
     div.appendChild(signButton);
 

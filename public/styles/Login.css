@@ -2,12 +2,15 @@
     background-color:rgb(255, 241, 179);
     height: 6rem;
 }
-.header > p {
-    margin-top: 2.3rem;
-    margin-left: 2rem;
+#reload > p {
+    color: black;
+    margin-top: 6px;
     scale: 150%;
 }
-.header > img {
+#reload > img {
+    margin-left: 2rem;
+}
+.header > a {
     margin-top: 2rem;
     margin-left: 2rem;
 }
@@ -20,9 +23,12 @@
     border-radius: 5px;
     margin-top: 2.4rem;
 }
-.header > img, 
-.header > button,
-.header > p {
+.header > a, 
+.header > button {
+    float: left;
+}
+#reload > p,
+#reload > img {
     float: left;
 }
 #body {
