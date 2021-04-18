@@ -114,6 +114,7 @@ function getCategories(id){
                 header.setAttribute('id', 'special');
     
                 for (let j = 0; j < id.length; j++){
+                    setTimeout(() => {
                     let itemOne = document.createElement('div');
                     itemOne.setAttribute('id', 'item');
                     let imageOne = document.createElement('img');
@@ -126,6 +127,7 @@ function getCategories(id){
                     itemOne.appendChild(labelOne);
                     itemOne.appendChild(infoOne);
                     dailySpecial.appendChild(itemOne);
+                    }, 200);
                 }
     
                 body.appendChild(dailySpecial);

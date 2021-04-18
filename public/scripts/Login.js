@@ -1,4 +1,5 @@
 var HTML = 0;
+
 $(document).ready(function(){
     let mainBody = document.getElementById('body');
     let div = document.createElement('div');
