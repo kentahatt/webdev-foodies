@@ -1,7 +1,44 @@
+var HTML = 0;
+$(document).ready(function(){
+    let mainBody = document.getElementById('body');
+    let div = document.createElement('div');
+    div.id = "changeHTML";
+    let a = document.createElement('a');
+    a.id = "htmlLink";
+    // forced fix
+    a.href = "store.html";
+
+    let htmlBody = document.createElement('div');
+    htmlBody.id = "htmlBody";
+    let htmlHeader = document.createElement('p');
+    htmlHeader.innerHTML = "Go to the store page";
+
+    htmlBody.appendChild(htmlHeader)
+    a.appendChild(htmlBody);
+    div.appendChild(a);
+    mainBody.appendChild(div);
+
+    // can't stop the form from refreshing html
+    if (HTML == 1){
+        let link = document.getElementById('htmlLink');
+        link.href = "store.js"
+    }
+})
+function keyPress(){
+    let showPassword = document.getElementById('pswd');
+    if (showPassword.type == "password"){
+        showPassword.type = "text";
+        setTimeout(() => {  showPassword.type = "password"; }, 1800);
+    }
+}
+
+function changeHTML(){
+    HTML = 1;
+}
+
 function login(){
     $('#body').empty();
     
-    console.log('hey')
     let mainBody = document.getElementById('body');
     let div = document.createElement('div');
     div.setAttribute('id', 'logindiv')
@@ -22,55 +59,38 @@ function login(){
 
     div.appendChild(divInfo);
 
-    let signIn = document.createElement('table');
-    signIn.setAttribute('id', 'signIn');
-    let headerOne = document.createElement('tr');
-    let usernameText = document.createElement('td');
-    usernameText.innerHTML = 'Enter Username:';
-    headerOne.appendChild(usernameText);
-    signIn.appendChild(headerOne);
+    let form = document.createElement('form');
+    form.setAttribute('onclick', 'changeHTML()');
+    form.setAttribute('id', 'signIn');
+    form.setAttribute('action', '');
+    let labelOne = document.createElement('label');
+    labelOne.innerHTML = "Enter Username:";
+    let username = document.createElement('input');
+    username.type = "text";
+    let labelTwo = document.createElement('label');
+    labelTwo.innerHTML = "Enter Password:";
+    let password = document.createElement('input');
+    password.type = "text";
 
-    let headerTwo = document.createElement('tr');
-    let username = document.createElement('td');
-    let inputOne = document.createElement('input');
-    inputOne.setAttribute('type', 'text');
-    inputOne.setAttribute('size', '40');
-    username.appendChild(inputOne);
-    headerTwo.appendChild(username);
-    signIn.appendChild(headerTwo);
+    let submit = document.createElement('input');
+    submit.onsubmit = "return false";
+    submit.id = "submit";
+    submit.type = "submit";
+    submit.value = "Create Account";
 
-    let headerThree = document.createElement('tr');
-    let passwordText = document.createElement('td');
-    passwordText.innerHTML = 'Enter Password:';
-    headerThree.appendChild(passwordText);
-    signIn.appendChild(headerThree);
+    form.appendChild(labelOne);
+    form.appendChild(username);
+    form.appendChild(labelTwo);
+    form.appendChild(password);
+    form.appendChild(submit);
 
-    let headerFour = document.createElement('tr');
-    let password = document.createElement('td');
-    let inputTwo = document.createElement('input');
-    inputTwo.setAttribute('type', 'password');
-    inputTwo.setAttribute('size', '40');
-    password.appendChild(inputTwo);
-    headerFour.appendChild(password);
-    signIn.appendChild(headerFour);
-
-    div.appendChild(signIn);
-
-    let signButton = document.createElement('div');
-    signButton.setAttribute('id', 'login');
-    let link = document.createElement('a');
-    link.innerHTML = 'Login';
-    link.setAttribute('href', 'store.html');
-    signButton.appendChild(link);
-    div.appendChild(signButton);
-
+    div.appendChild(form);
     mainBody.appendChild(div);
 }
 
 function createAccount(){
     $('#body').empty();
     
-    console.log('hey')
     let mainBody = document.getElementById('body');
     let div = document.createElement('div');
     div.setAttribute('id', 'logindiv')
@@ -91,47 +111,35 @@ function createAccount(){
 
     div.appendChild(divInfo);
 
-    let signIn = document.createElement('table');
-    signIn.setAttribute('id', 'signIn');
-    let headerOne = document.createElement('tr');
-    let usernameText = document.createElement('td');
-    usernameText.innerHTML = 'Create Username:';
-    headerOne.appendChild(usernameText);
-    signIn.appendChild(headerOne);
+    let form = document.createElement('form');
+    form.setAttribute('onclick', 'changeHTML()');
+    form.setAttribute('id', 'signIn');
+    form.setAttribute('action', '');
+    let labelOne = document.createElement('label');
+    labelOne.innerHTML = "Create Username:";
+    let username = document.createElement('input');
+    username.type = "text";
+    let labelTwo = document.createElement('label');
+    labelTwo.innerHTML = "Create Password:";
+    let password = document.createElement('input');
+    password.type = "text";
 
-    let headerTwo = document.createElement('tr');
-    let username = document.createElement('td');
-    let inputOne = document.createElement('input');
-    inputOne.setAttribute('type', 'text');
-    inputOne.setAttribute('size', '40');
-    username.appendChild(inputOne);
-    headerTwo.appendChild(username);
-    signIn.appendChild(headerTwo);
+    let submit = document.createElement('input');
+    submit.onsubmit = "return false";
+    submit.id = "submit";
+    submit.type = "submit";
+    submit.value = "Create Account";
 
-    let headerThree = document.createElement('tr');
-    let passwordText = document.createElement('td');
-    passwordText.innerHTML = 'Create Password:';
-    headerThree.appendChild(passwordText);
-    signIn.appendChild(headerThree);
+    form.appendChild(labelOne);
+    form.appendChild(username);
+    form.appendChild(labelTwo);
+    form.appendChild(password);
+    form.appendChild(submit);
 
-    let headerFour = document.createElement('tr');
-    let password = document.createElement('td');
-    let inputTwo = document.createElement('input');
-    inputTwo.setAttribute('type', 'password');
-    inputTwo.setAttribute('size', '40');
-    password.appendChild(inputTwo);
-    headerFour.appendChild(password);
-    signIn.appendChild(headerFour);
-
-    div.appendChild(signIn);
-
-    let signButton = document.createElement('div');
-    signButton.setAttribute('id', 'login');
-    let link = document.createElement('a');
-    link.innerHTML = 'Create Account';
-    link.setAttribute('href', 'store.html');
-    signButton.appendChild(link);
-    div.appendChild(signButton);
-
+    div.appendChild(form);
     mainBody.appendChild(div);
 }
+
+
+// after submit is clicked. erase what was there and make a "go to store <a>"
+// for both login and create account

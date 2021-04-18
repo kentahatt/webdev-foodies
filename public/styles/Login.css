@@ -35,6 +35,10 @@
     height: 54.1rem;
     background-image: url('../images/loginbackground1.png');
 }
+#body2 {
+    height: 20.1rem;
+    background-image: url('../images/loginbackground1.png');
+}
 #logindiv {
     display: grid;
     grid-template-rows: 4rem;
@@ -60,7 +64,7 @@
 
 }
 #logindiv > div {
-    font-size: 125%;
+    font-size: 150%;
     margin-top: 2rem;
     margin-left: auto;
     margin-right: auto;
@@ -69,21 +73,51 @@
     color:rgb(212, 143, 78);
 }
 #signIn {
-    margin-top: -5rem;
-    margin-left: 3rem;
+    display: grid;
+    grid-template-rows: 2rem 5rem 2rem 5rem;
+    margin-top: -10rem;
+    margin-left: 2rem;
 }
-#login {
-    text-align: center;
-    border-radius: 20px;
-    margin-top: 13rem;
-    margin-left: auto;
-    margin-right: auto;
-    width: 20rem;
-    height: 60px;
+#signIn > label {
+    font-size: 125%;
+}
+#signIn > input {
+    font-size: 150%;
+    width: 21rem;
+    height: 3rem;
+}
+#submit {
+    font-size: 150%;
+    width: 13rem;
+    height: 4.5rem;
+    margin-top: 2rem;
+    border-radius: 15px;
     background-color: rgb(94, 228, 94);
 }
-#login > a {
+#submit > a {
+    width: 13rem;
+    height: 4.5rem;
+    opacity: 1;
+}
+#changeHTML {
+    display: grid;
+    grid-template-rows: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50rem;
+    height: 50rem;
+}
+#htmlBody {
+    margin-top: 5rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30rem;
+    height: 18rem;
+    border-radius: 20px;
+    background-image: url('../images/logindivbackground.png');
+}
+#htmlBody > p {
     font-size: 200%;
-    color: rgb(255, 255, 255);
-    text-decoration: none;
+    padding: 5rem;
+    color: black;
 }
