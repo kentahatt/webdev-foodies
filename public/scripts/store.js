@@ -36,6 +36,7 @@ function dailySpecial(){
                 dailySpecial.appendChild(header);
 
                 for (let j = 0; j < 3; j++){
+                    setTimeout(() => {
                     let itemOne = document.createElement('div');
                     itemOne.setAttribute('id', 'item');
                     let imageOne = document.createElement('img');
@@ -48,6 +49,7 @@ function dailySpecial(){
                     itemOne.appendChild(labelOne);
                     itemOne.appendChild(infoOne);
                     dailySpecial.appendChild(itemOne);
+                    }, 200);
                 }
 
                 body.appendChild(dailySpecial);
