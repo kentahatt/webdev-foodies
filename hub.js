@@ -1,5 +1,6 @@
 let express = require('express');
 let app = express();
+var bodyParser = require('body-parser');
 
 const session = require('express-session');
 const { v4: uuidv4 } = require('uuid');
@@ -10,6 +11,7 @@ const model = require('./public/model/model.js');
 
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: false}));
+
 
 app.use(session({
   genid: uuidv4,
@@ -34,34 +36,37 @@ app.get('/', function(request, response){
   response.sendFile(__dirname + '/public/Login.html');
 });
 
-app.get('/login', function(request, response){
-  let user = request.body.loginUser;
-  console.log("got itttttttttttttttttttt");
-  console.log(user);
+
+
+app.post('/login', function(request, response) {
+
+
+  model.User.find({username: request.body.loginUser, password: request.body.loginPass}).then(function(userList) {
+      if (userList.length > 0) {
+          // there is already a student with that sid
+          response.sendFile(__dirname + '/public/store.html');
+      } 
+  });
+
 });
 
 app.post('/create', function(request, response) {
+  
+  console.log(request.body.createUser)
+  console.log(request.body.createPass)
   let userData = {
-      username: request.body.username,
-      password: request.body.password,
+    username: request.body.createUser,
+    password: request.body.createPass, 
   };
-
-
-  model.User.find({username: request.body.username,}).then(function(userList) {
-      if (userList.length > 0) {
+  let newUser = new model.User(userData);
+  newUser.save(function(error) {
+      if (error) {
+          console.error('Unable to add user:', error);
       } else {
-          // there is no student with that sid
-          let newUser = new model.User(userData);
-          newUser.save(function(error) {
-              if (error) {
-                  console.error('Unable to add student:', error);
-              } else {
-                  console.log('User added');
-              }
-          });
+          console.log('User added');
+          response.sendFile(__dirname + '/public/store.html');
       }
   });
-
 });
 
 app.set('port', process.env.PORT || 3000);

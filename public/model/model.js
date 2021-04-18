@@ -16,7 +16,7 @@ mongoose.set('useCreateIndex', true);
 let Schema = mongoose.Schema;
 let userSchema = new Schema({
     username: String,
-    hashPassword: String
+    password: String,
 }, {
     collection: 'users'
 });

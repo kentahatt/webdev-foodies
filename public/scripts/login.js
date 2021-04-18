@@ -61,23 +61,29 @@ function login(){
     div.appendChild(divInfo);
 
     let form = document.createElement('form');
-    form.setAttribute('onclick', 'changeHTML()');
     form.setAttribute('id', 'signIn');
-    form.setAttribute('action', '');
+    form.setAttribute('method', 'post');
+    form.setAttribute('action', '/login');
+
     let labelOne = document.createElement('label');
     labelOne.innerHTML = "Enter Username:";
+
     let username = document.createElement('input');
     username.type = "text";
+    username.setAttribute('name','loginUser');
+
     let labelTwo = document.createElement('label');
     labelTwo.innerHTML = "Enter Password:";
+
     let password = document.createElement('input');
     password.type = "text";
+    password.setAttribute('name','loginPass');
 
     let submit = document.createElement('input');
     submit.onsubmit = "return false";
     submit.id = "submit";
     submit.type = "submit";
-    submit.value = "Create Account";
+    submit.value = "Login";
 
     form.appendChild(labelOne);
     form.appendChild(username);
@@ -113,17 +119,23 @@ function createAccount(){
     div.appendChild(divInfo);
 
     let form = document.createElement('form');
-    form.setAttribute('onclick', 'changeHTML()');
     form.setAttribute('id', 'signIn');
-    form.setAttribute('action', '');
+    form.setAttribute('method', 'post');
+    form.setAttribute('action', '/create');
+
+
+
     let labelOne = document.createElement('label');
     labelOne.innerHTML = "Create Username:";
     let username = document.createElement('input');
     username.type = "text";
+    username.setAttribute('name','createUser');
+
     let labelTwo = document.createElement('label');
     labelTwo.innerHTML = "Create Password:";
     let password = document.createElement('input');
     password.type = "text";
+    password.setAttribute('name','createPass');
 
     let submit = document.createElement('input');
     submit.onsubmit = "return false";
