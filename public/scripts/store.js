@@ -2,6 +2,9 @@ $(document).ready(function(){
     dailySpecial();
 
     buildCategories();
+    
+    // console.log(labelOne.value)
+    // itemOne.setAttribute('onclick', 'findItem(' + labelOne.value + ')');
     $('#btn').click(function() {
         var name = $('[name="productName"]').val();
         findItem(name);
@@ -49,6 +52,8 @@ function dailySpecial(){
                     labelOne.innerHTML = dailySpecialName[j];
                     let infoOne = document.createElement('p');
                     infoOne.innerHTML = dailySpecialInstructions[j];
+
+                    itemOne.setAttribute('onclick', 'findItem("' + labelOne.innerHTML + '")');
                     itemOne.appendChild(imageOne);
                     itemOne.appendChild(labelOne);
                     itemOne.appendChild(infoOne);
@@ -157,6 +162,8 @@ function getCategories(id){
                     labelOne.innerHTML = dailySpecialName[j];
                     let infoOne = document.createElement('p');
                     infoOne.innerHTML = dailySpecialInstructions[j];
+
+                    itemOne.setAttribute('onclick', 'findItem("' + labelOne.innerHTML + '")');
                     itemOne.appendChild(imageOne);
                     itemOne.appendChild(labelOne);
                     itemOne.appendChild(infoOne);
@@ -184,6 +191,7 @@ function findItem(name){
         displayItem(item);
     }
 }
+// save html to variable
 // pop a floating image in mainBody
 // surrounding is background black with low opacity
 // replace spacing with _
@@ -195,6 +203,8 @@ function findItem(name){
 // - show instructions
 // get image, name, tags, ingredients, measurements, intructions
 function displayItem(item){
+    let bar = document.getElementById('search');
+    bar.value = "";
     $('#floatingBody').empty();
     item = item.replace(/ /g, '_');
     var ingredients;
@@ -263,6 +273,10 @@ function displayItem(item){
         let instructions = document.createElement('p');
         instructions.innerHTML = data[0].strInstructions;
         itemDisplay.appendChild(instructions);
+
+        let spacer = document.createElement('div');
+        spacer.id = "spacer";
+        itemDisplay.appendChild(spacer);
 
         darkened.appendChild(itemDisplay);
         floatingBody.appendChild(darkened);

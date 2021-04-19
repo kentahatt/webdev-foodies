@@ -11,6 +11,9 @@
     margin-top: 6px;
     scale: 150%;
 }
+#logo {
+    border-radius: 10px;
+}
 #reload {
     margin-left: 0.5rem;
 }
@@ -49,7 +52,6 @@
     font-size: 20px;
 }
 .dropdown {
-    margin-top: -.9rem;
     margin-left: 20rem;
     position: relative;
     display: inline-block;
@@ -93,8 +95,13 @@
     display: block;
 }
 #logout {
+    margin-top: .9rem;
+    position: relative;
+    display: inline-block;
+}
+#logout > a {
     margin-left: 3rem;
-    padding: 1rem;
+    padding: .95rem;
     color: rgb(0, 0, 0);
     border-color: #d3a62d;
     border-style: solid;
@@ -139,6 +146,7 @@
     width: 20rem;
     height: 30rem;
     border-radius: 10px;
+    cursor: pointer;
     background-color: white;
     overflow-y: hidden;
 }
@@ -235,4 +243,7 @@
     margin-left: 4rem;
     width: 50rem;
     font-size: 150%;
+}
+#spacer {
+    height: 7rem;
 }
