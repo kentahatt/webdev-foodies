@@ -1,11 +1,15 @@
-
 $(document).ready(function(){
     dailySpecial();
 
     buildCategories();
+    $('#btn').click(function() {
+        var name = $('[name="productName"]').val();
+        findItem(name);
+    });
 });
 
 function dailySpecial(){
+    $('#floatingBody').empty();
     var data = [];
     var dailySpecialImage = [];
     var dailySpecialName = [];
@@ -60,24 +64,53 @@ function dailySpecial(){
 
 function buildCategories(){
     var data = [];
+    var categoryNames = [];
     
     fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
-        .then((response) => response.json())
-        .then((json) => {
-            data = json.categories;
+    .then((response) => response.json())
+    .then((json) => {
+        data = json.categories;
 
-            let dataList = document.getElementById('categories');
-            for (let i = 0; i < data.length; i++){
-                let option = document.createElement('p');
-                option.setAttribute('onclick', 'getFoodID("' + data[i].strCategory + '")');
-                option.innerHTML = data[i].strCategory;
-                dataList.appendChild(option)
-            }
-        });
+        let dataList = document.getElementById('categories');
+        for (let i = 0; i < data.length; i++){
+            let option = document.createElement('p');
+            option.setAttribute('onclick', 'getFoodID("' + data[i].strCategory + '")');
+            option.innerHTML = data[i].strCategory;
+            dataList.appendChild(option);
+
+            categoryNames[i] = data[i].strCategory;
+        }
+
+        buildSearchBar(categoryNames);
+    });
+}
+
+function getEveryFoodName(category){
+    var data = [];
+
+    fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=' + category)
+    .then((response) => response.json())
+    .then((json) => {
+        data = json.meals;
+
+        let datalist = document.getElementById('productName');
+        for (let i = 0; i < data.length; i++){
+            let option = document.createElement('option');
+            option.value = data[i].strMeal;
+            datalist.appendChild(option);
+        }
+    });
+}
+
+function buildSearchBar(names){
+    for (let i = 0; i < names.length; i++){
+        getEveryFoodName(names[i])
+    }
 }
 
 function getFoodID(category){
     $('#floatingBody').empty();
+    var data = [];
     var foodID = [];
 
     fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=' + category)
@@ -103,7 +136,6 @@ function getCategories(id){
         .then((json) => {
             foodData = json.meals;
 
-            console.log(foodData)
             dailySpecialImage[i] = foodData[0].strMealThumb
             dailySpecialName[i] = foodData[0].strMeal
             dailySpecialInstructions[i] = foodData[0].strInstructions
@@ -138,3 +170,101 @@ function getCategories(id){
     }
 }
 
+function findItem(name){
+    var item;
+
+    let option = document.getElementById('productName').options;
+    // console.log(option[0])
+    for (let i = 0; i < option.length; i++){
+        if (name == option[i].value){
+            item = name;
+        }
+    }
+    if (item != null){
+        displayItem(item);
+    }
+}
+// pop a floating image in mainBody
+// surrounding is background black with low opacity
+// replace spacing with _
+// in instructions get rid of \r and \n
+// display
+// - have an x at top right to close
+// - list the strIngredients and strMeasures side by side in grid
+// - show image
+// - show instructions
+// get image, name, tags, ingredients, measurements, intructions
+function displayItem(item){
+    $('#floatingBody').empty();
+    item = item.replace(/ /g, '_');
+    var ingredients;
+    var measurements;
+
+    fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + item)
+        .then((response) => response.json())
+        .then((json) => {
+        data = json.meals;
+
+        let floatingBody = document.getElementById('floatingBody');
+        let darkened = document.createElement('div');
+        darkened.id = "darkened";
+        let itemDisplay = document.createElement('div');
+        itemDisplay.id = "itemDisplay";
+        let closeBtn = document.createElement('button');
+        closeBtn.setAttribute('onclick', "dailySpecial()");
+        closeBtn.innerHTML = "X";
+        itemDisplay.appendChild(closeBtn);
+
+        let gridDiv = document.createElement('div');
+        let image = document.createElement('img');
+        image.src = data[0].strMealThumb;
+        gridDiv.appendChild(image);
+
+        let headerDiv = document.createElement('div');
+        let header = document.createElement('h1');
+        header.id = "itemHeader";
+        header.innerHTML = data[0].strMeal;
+        headerDiv.appendChild(header);
+
+        let tags = document.createElement('p');
+        tags.innerHTML = "Tags:";
+        let spanTag = document.createElement('span');
+        spanTag.innerHTML = data[0].strTags;
+        tags.appendChild(spanTag);
+        let brIngredients = document.createElement('br');
+        brIngredients.innerHTML = "Ingredients:";
+        tags.appendChild(brIngredients);
+        headerDiv.appendChild(tags);
+
+        for (let i = 1; i < 21; i++){
+            ingredients = 'strIngredient' + i;
+            measurements = 'strMeasure' + i;
+
+            if (data[0][ingredients] != ""){
+                let ingredient = document.createElement('p');
+                ingredient.innerHTML = data[0][ingredients];
+    
+                let measurement = document.createElement('span');
+                measurement.innerHTML = "- " + data[0][measurements];
+                ingredient.appendChild(measurement);
+                
+                headerDiv.appendChild(ingredient);
+            }
+        }
+
+        
+        gridDiv.appendChild(headerDiv);
+        itemDisplay.appendChild(gridDiv);
+
+        let instructionHeader = document.createElement('h');
+        instructionHeader.innerHTML = "Instructions:";
+        itemDisplay.appendChild(instructionHeader);
+
+        let instructions = document.createElement('p');
+        instructions.innerHTML = data[0].strInstructions;
+        itemDisplay.appendChild(instructions);
+
+        darkened.appendChild(itemDisplay);
+        floatingBody.appendChild(darkened);
+    });
+}
