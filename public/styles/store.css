@@ -17,7 +17,7 @@
 #reload {
     margin-left: 0.5rem;
 }
-#reload > p:hover {
+#logo:hover {
     border-color: rgb(105, 105, 105);
     border-style: solid;
     border-width: 1px;
@@ -74,6 +74,11 @@
     border-style: solid;
     border-width: 1px;
     z-index: 5;
+}
+#categories:hover {
+    border-color: #000000;
+    border-style: solid;
+    border-width: 1px;
 }
 #categories > p {
     color: black;
@@ -151,6 +156,7 @@
     overflow-y: hidden;
 }
 #item > label {
+    text-align: center;
     color: #000000;
     font-size: 120%;
 }

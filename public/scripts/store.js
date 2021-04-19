@@ -192,16 +192,6 @@ function findItem(name){
     }
 }
 // save html to variable
-// pop a floating image in mainBody
-// surrounding is background black with low opacity
-// replace spacing with _
-// in instructions get rid of \r and \n
-// display
-// - have an x at top right to close
-// - list the strIngredients and strMeasures side by side in grid
-// - show image
-// - show instructions
-// get image, name, tags, ingredients, measurements, intructions
 function displayItem(item){
     let bar = document.getElementById('search');
     bar.value = "";
@@ -241,16 +231,16 @@ function displayItem(item){
         let spanTag = document.createElement('span');
         spanTag.innerHTML = data[0].strTags;
         tags.appendChild(spanTag);
-        let brIngredients = document.createElement('br');
-        brIngredients.innerHTML = "Ingredients:";
-        tags.appendChild(brIngredients);
+        let pIngredients = document.createElement('p');
+        pIngredients.innerHTML = "Ingredients:";
+        tags.appendChild(pIngredients);
         headerDiv.appendChild(tags);
 
         for (let i = 1; i < 21; i++){
             ingredients = 'strIngredient' + i;
             measurements = 'strMeasure' + i;
-
-            if (data[0][ingredients] != ""){
+            
+            if (data[0][ingredients] != "" || data[0][ingredients] != null){
                 let ingredient = document.createElement('p');
                 ingredient.innerHTML = data[0][ingredients];
     

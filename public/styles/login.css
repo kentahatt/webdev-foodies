@@ -16,15 +16,29 @@
     margin-top: 2rem;
     margin-left: .5rem;
 }
-.header > div {
-    display: block;
-    margin-left: 86.5%;
+.header > button {
+    border-width: 1px;
 }
-.header > div > button {
-    border-color:rgb(189, 174, 38);
+#loginBtn {
+    margin-left: 68%;
+    margin-top: 1.85rem;
+    width: 6rem;
+    height: 3.2rem;
+    font-size: 110%;
     border-radius: 5px;
-    margin-top: 2.4rem;
+    border-color:#d3a62d;
+    background-color: #d3a62d;
 }
+#createAccountBtn {
+    margin-top: 1.88rem;
+    margin-left: 2rem;
+    height: 3.2rem;
+    border-radius: 5px;
+    font-size: 110%;
+    border-color:#d3a62d;
+    background-color: #d3a62d;
+}
+
 .header > a, 
 .header > button {
     float: left;
@@ -33,14 +47,38 @@
 #reload > img {
     float: left;
 }
-#body {
-    height: 54.1rem;
-    background-image: url('../images/loginbackground1.png');
+#mainBody {
+    height: 52.6rem;
+    overflow-y: hidden;
 }
-#body2 {
-    height: 20.1rem;
-    background-image: url('../images/loginbackground1.png');
+.slides {
+    display: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #logindiv {
     display: grid;
     grid-template-rows: 4rem;

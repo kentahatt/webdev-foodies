@@ -1,40 +1,31 @@
-var HTML = 0;
-
 $(document).ready(function(){
-    let mainBody = document.getElementById('body');
-    let div = document.createElement('div');
-    div.id = "changeHTML";
-    let a = document.createElement('a');
-    a.id = "htmlLink";
-    // forced fix
-    a.href = "store.html";
+    slideShow();
 
-    let htmlBody = document.createElement('div');
-    htmlBody.id = "htmlBody";
-    let htmlHeader = document.createElement('p');
-    htmlHeader.innerHTML = "Go to the store page";
-
-    htmlBody.appendChild(htmlHeader)
-    a.appendChild(htmlBody);
-    div.appendChild(a);
-    mainBody.appendChild(div);
-
-    // can't stop the form from refreshing html
-    if (HTML == 1){
-        let link = document.getElementById('htmlLink');
-        link.href = "store.js"
-    }
 })
+
+var slideIndex = 0;
+
+function slideShow(){
+    var slides = document.getElementsByClassName("slides");
+
+    for (let i = 0; i < slides.length; i++){
+        slides[i].style.display = "none";  
+    }
+    
+    slideIndex++;
+    if (slideIndex > slides.length){
+        slideIndex = 1
+    }
+    slides[slideIndex-1].style.display = "block";  
+    setTimeout(() => {  slideShow(); }, 3000);
+}
+
 function keyPress(){
     let showPassword = document.getElementById('pswd');
     if (showPassword.type == "password"){
         showPassword.type = "text";
         setTimeout(() => {  showPassword.type = "password"; }, 1800);
     }
-}
-
-function changeHTML(){
-    HTML = 1;
 }
 
 function login(){
@@ -152,7 +143,3 @@ function createAccount(){
     div.appendChild(form);
     mainBody.appendChild(div);
 }
-
-
-// after submit is clicked. erase what was there and make a "go to store <a>"
-// for both login and create account
