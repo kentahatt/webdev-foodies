@@ -307,7 +307,7 @@ function displayItem(item){
         submit.onsubmit = "return false";
         submit.id = "submitMail";
         submit.type = "submit";
-        submit.value = "Get Information";
+        submit.value = "Get Recipe";
 
         form.appendChild(hiddenName);
         form.appendChild(hiddenIngredients);
