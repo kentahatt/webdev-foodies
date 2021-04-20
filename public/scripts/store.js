@@ -293,7 +293,7 @@ function displayItem(item){
         hiddenInstructions.value = data[0].strInstructions;
 
         let formHeader = document.createElement('label');
-        formHeader.innerHTML = "You can save the data by entering your email!"
+        formHeader.innerHTML = "Send the recipe to yourself or share with a friend!";
         formHeader.id = "emailHeader";
 
         let email = document.createElement('input');
