@@ -1,3 +1,4 @@
+var ingredientsList = "";
 $(document).ready(function(){
     dailySpecial();
 
@@ -248,12 +249,13 @@ function displayItem(item){
                     let measurement = document.createElement('span');
                     measurement.innerHTML = "- " + data[0][measurements];
                     ingredient.appendChild(measurement);
-                    
+
+                    ingredientsList += data[0][ingredients] + "- " + data[0][measurements] + ', '
+
                     headerDiv.appendChild(ingredient);
                 }
             }
         }
-
         
         gridDiv.appendChild(headerDiv);
         itemDisplay.appendChild(gridDiv);
@@ -271,23 +273,33 @@ function displayItem(item){
         form.setAttribute('method', 'post');
         form.setAttribute('action', '/email');
 
+        
         let hiddenIngredients = document.createElement('input');
         hiddenIngredients.type = "text";
         hiddenIngredients.id = "ingredientsInfo";
         hiddenIngredients.setAttribute('name','ingredientsInfo');
-        hiddenIngredients.innerHTML = data[0].strInstructions;
+        hiddenIngredients.value = ingredientsList;
+
+        let hiddenInstructions = document.createElement('input');
+        hiddenInstructions.type = "text";
+        hiddenInstructions.id = "instructionInfo";
+        hiddenInstructions.setAttribute('name','instructionInfo');
+        hiddenInstructions.value = data[0].strInstructions;
 
         let email = document.createElement('input');
         email.type = "text";
+        email.id = "emailInfo";
+        email.placeholder = "Enter an Email"
         email.setAttribute('name','emailInfo');
 
         let submit = document.createElement('input');
         submit.onsubmit = "return false";
         submit.id = "submitMail";
         submit.type = "submit";
-        submit.value = "email";
+        submit.value = "Send Email";
 
         form.appendChild(hiddenIngredients);
+        form.appendChild(hiddenInstructions);
         form.appendChild(email);
         form.appendChild(submit);
         itemDisplay.appendChild(form);
