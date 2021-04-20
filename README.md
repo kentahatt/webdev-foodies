@@ -13,6 +13,7 @@ Manmeet Choudhary  - Node.js, MongoDB, Nodemailer, login.js
 Kenta Hattori      - Node.js, Nodemailer, login.html|.js|.css
 Eric CB-Lamontagne - HTML, JavaScript, CSS
 
+## Independent Study: Nodemailer
 https://docs.google.com/presentation/u/1/d/1t6jAR7pdPNX9y9XLncatleKYhYhN3ylwhorYN3sDuhE/edit#slide=id.g9baafe93df_0_310
 
 ## Overview
