@@ -122,7 +122,7 @@ app.post('/email', function(request, response) {
       // Message object
       let message = {
   
-          from: 'Foodies, Eat WelL! <foodies.uoit@gmail.com>',
+          from: 'Foodies Eat Well! <foodies.uoit@gmail.com>',
     
           // Comma separated list of recipients
           to: request.body.emailInfo,
