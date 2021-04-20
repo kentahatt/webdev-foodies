@@ -11,7 +11,7 @@ Before you submit your project, modify the following table to include everyone's
 | Work Done                                                     |
 | :------------------------------------------------------------:|
 | Manmeet Choudhary  - Node.js, MongoDB, Nodemailer, login.js   |
-| Kenta Hattori      - Node.js, Nodemailer, login.html|.js|.css |
+| Kenta Hattori      - Node.js, Nodemailer, login.html .js .css |
 | Eric CB-Lamontagne - HTML, JavaScript, CSS                    |
 
 
