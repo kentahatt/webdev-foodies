@@ -273,7 +273,12 @@ function displayItem(item){
         form.setAttribute('method', 'post');
         form.setAttribute('action', '/email');
 
-        
+        let hiddenName = document.createElement('input');
+        hiddenName.type = "text";
+        hiddenName.id = "hiddenName";
+        hiddenName.setAttribute('name','hiddenName');
+        hiddenName.value = data[0].strMeal;
+
         let hiddenIngredients = document.createElement('input');
         hiddenIngredients.type = "text";
         hiddenIngredients.id = "ingredientsInfo";
@@ -286,6 +291,10 @@ function displayItem(item){
         hiddenInstructions.setAttribute('name','instructionInfo');
         hiddenInstructions.value = data[0].strInstructions;
 
+        let formHeader = document.createElement('label');
+        formHeader.innerHTML = "You can save the data by entering your email!"
+        formHeader.id = "emailHeader";
+
         let email = document.createElement('input');
         email.type = "text";
         email.id = "emailInfo";
@@ -296,10 +305,11 @@ function displayItem(item){
         submit.onsubmit = "return false";
         submit.id = "submitMail";
         submit.type = "submit";
-        submit.value = "Send Email";
+        submit.value = "Get Information";
 
         form.appendChild(hiddenIngredients);
         form.appendChild(hiddenInstructions);
+        form.appendChild(formHeader);
         form.appendChild(email);
         form.appendChild(submit);
         itemDisplay.appendChild(form);
