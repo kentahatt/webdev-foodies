@@ -266,9 +266,35 @@ function displayItem(item){
         instructions.innerHTML = data[0].strInstructions;
         itemDisplay.appendChild(instructions);
 
-        let spacerOne = document.createElement('div');
-        spacerOne.id = "spacer";
-        itemDisplay.appendChild(spacerOne);
+        let form = document.createElement('form');
+        form.setAttribute('id', 'sendMail');
+        form.setAttribute('method', 'post');
+        form.setAttribute('action', '/email');
+
+        let hiddenIngredients = document.createElement('input');
+        hiddenIngredients.type = "text";
+        hiddenIngredients.id = "ingredientsInfo";
+        hiddenIngredients.setAttribute('name','ingredientsInfo');
+        hiddenIngredients.innerHTML = data[0].strInstructions;
+
+        let email = document.createElement('input');
+        email.type = "text";
+        email.setAttribute('name','emailInfo');
+
+        let submit = document.createElement('input');
+        submit.onsubmit = "return false";
+        submit.id = "submitMail";
+        submit.type = "submit";
+        submit.value = "email";
+
+        form.appendChild(hiddenIngredients);
+        form.appendChild(email);
+        form.appendChild(submit);
+        itemDisplay.appendChild(form);
+
+        let spacer1 = document.createElement('div');
+        spacer1.id = "spacer";
+        itemDisplay.appendChild(spacer1);
 
         darkened.appendChild(itemDisplay);
         floatingBody.appendChild(darkened);

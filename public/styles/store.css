@@ -259,3 +259,6 @@
 #spacer {
     height: 7rem;
 }
+#ingredientsInfo {
+    display: none;
+}
