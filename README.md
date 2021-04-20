@@ -12,7 +12,7 @@ Before you submit your project, modify the following table to include everyone's
 | :------------------------------------------------------------:|
 | Manmeet Choudhary  - Node.js, MongoDB, Nodemailer, login.js   |
 | Kenta Hattori      - Node.js, Nodemailer, login.html .js .css |
-| Eric CB-Lamontagne - HTML, JavaScript, CSS                    |
+| Eric CB-Lamontagne - HTML, JAVASCRIPT, CSS                    |
 
 
 Independent Study:
