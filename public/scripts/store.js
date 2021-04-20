@@ -273,6 +273,12 @@ function displayItem(item){
         form.setAttribute('method', 'post');
         form.setAttribute('action', '/email');
 
+        let hiddenName = document.createElement('input');
+        hiddenName.type = "text";
+        hiddenName.id = "hiddenName";
+        hiddenName.setAttribute('name','hiddenName');
+        hiddenName.value = data[0].strMeal;
+
         
         let hiddenIngredients = document.createElement('input');
         hiddenIngredients.type = "text";
@@ -299,6 +305,7 @@ function displayItem(item){
         submit.type = "submit";
         submit.value = "Send Email";
 
+        form.appendChild(hiddenName);
         form.appendChild(hiddenIngredients);
         form.appendChild(hiddenInstructions);
         form.appendChild(email);

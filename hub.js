@@ -119,15 +119,17 @@ app.post('/email', function(request, response) {
   
     // Message object
     let message = {
+
+        from: 'foodies.uoit@gmail.com',
   
         // Comma separated list of recipients
         to: request.body.emailInfo,
   
         // Subject of the message
-        subject: ,
+        subject: 'Recipie: ' + request.body.hiddenName,
   
         // plaintext body
-        text: request.body.ingredientsInfo,
+        text: request.body.ingredientsInfo + request.body.instructionInfo,
   
         list: {
             // List-Help: <mailto:admin@example.com?subject=help>
