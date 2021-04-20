@@ -129,27 +129,29 @@ app.post('/email', function(request, response) {
         subject: 'Recipie: ' + request.body.hiddenName,
   
         // plaintext body
-        text: request.body.ingredientsInfo + request.body.instructionInfo,
+        // text: request.body.ingredientsInfo + request.body.instructionInfo,
+
+        html: '<p>To make this recipie you need: <br></p>' + request.body.ingredientsInfo + '<p>\nInstructions:\n<p>' + request.body.instructionInfo,
   
-        list: {
-            // List-Help: <mailto:admin@example.com?subject=help>
-            help: 'admin@example.com?subject=help',
+        // list: {
+        //     // List-Help: <mailto:admin@example.com?subject=help>
+        //     help: 'admin@example.com?subject=help',
   
-            // List-Unsubscribe: <http://example.com> (Comment)
-            unsubscribe: [
-                {
-                    url: 'http://example.com/unsubscribe',
-                    comment: 'A short note about this url'
-                },
-                'unsubscribe@example.com'
-            ],
+        //     // List-Unsubscribe: <http://example.com> (Comment)
+        //     unsubscribe: [
+        //         {
+        //             url: 'http://example.com/unsubscribe',
+        //             comment: 'A short note about this url'
+        //         },
+        //         'unsubscribe@example.com'
+        //     ],
   
-            // List-ID: "comment" <example.com>
-            id: {
-                url: 'mylist.example.com',
-                comment: 'This is my awesome list'
-            }
-        }
+        //     // List-ID: "comment" <example.com>
+        //     id: {
+        //         url: 'mylist.example.com',
+        //         comment: 'This is my awesome list'
+        //     }
+        // }
     };
   
     transporter.sendMail(message, (error, info) => {
@@ -160,7 +162,6 @@ app.post('/email', function(request, response) {
         }
   
         console.log('Message sent successfully!');
-        console.log(nodemailer.getTestMessageUrl(info));
   
         // only needed when using pooled connections
         transporter.close();
