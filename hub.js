@@ -94,10 +94,7 @@ app.listen(app.get('port'), function() {
 
 
 app.post('/email', function(request, response) {
-  if((request.body.emailInfo).length == 0){
-    response.sendFile(__dirname + '/public/store.html');
-  }else{
-
+  if(validateEmail(request.body.emailInfo)){
     nodemailer.createTestAccount((err, account) => {
       if (err) {
           console.error('Failed to create a testing account');
@@ -173,9 +170,21 @@ app.post('/email', function(request, response) {
       });
     });
     response.sendFile(__dirname + '/public/store.html');
-
+    
+  } else{
+    console.log("not an actual email");
+    response.sendFile(__dirname + '/public/store.html');
   }
   
 
 
 });
+
+function validateEmail(mail) 
+{
+ if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail))
+  {
+    return (true)
+  }
+    return (false)
+}
