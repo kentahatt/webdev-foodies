@@ -3,8 +3,6 @@ $(document).ready(function(){
 
     buildCategories();
     
-    // console.log(labelOne.value)
-    // itemOne.setAttribute('onclick', 'findItem(' + labelOne.value + ')');
     $('#btn').click(function() {
         var name = $('[name="productName"]').val();
         findItem(name);
@@ -52,7 +50,8 @@ function dailySpecial(){
                     labelOne.innerHTML = dailySpecialName[j];
                     let infoOne = document.createElement('p');
                     infoOne.innerHTML = dailySpecialInstructions[j];
-
+                    infoOne.id = "itemTextField";
+                    
                     itemOne.setAttribute('onclick', 'findItem("' + labelOne.innerHTML + '")');
                     itemOne.appendChild(imageOne);
                     itemOne.appendChild(labelOne);
@@ -162,6 +161,7 @@ function getCategories(id){
                     labelOne.innerHTML = dailySpecialName[j];
                     let infoOne = document.createElement('p');
                     infoOne.innerHTML = dailySpecialInstructions[j];
+                    infoOne.id = "itemTextField";
 
                     itemOne.setAttribute('onclick', 'findItem("' + labelOne.innerHTML + '")');
                     itemOne.appendChild(imageOne);
@@ -240,15 +240,17 @@ function displayItem(item){
             ingredients = 'strIngredient' + i;
             measurements = 'strMeasure' + i;
             
-            if (data[0][ingredients] != "" || data[0][ingredients] != null){
-                let ingredient = document.createElement('p');
-                ingredient.innerHTML = data[0][ingredients];
-    
-                let measurement = document.createElement('span');
-                measurement.innerHTML = "- " + data[0][measurements];
-                ingredient.appendChild(measurement);
-                
-                headerDiv.appendChild(ingredient);
+            if (data[0][ingredients] != ""){
+                if (data[0][measurements] != null){
+                    let ingredient = document.createElement('p');
+                    ingredient.innerHTML = data[0][ingredients];
+        
+                    let measurement = document.createElement('span');
+                    measurement.innerHTML = "- " + data[0][measurements];
+                    ingredient.appendChild(measurement);
+                    
+                    headerDiv.appendChild(ingredient);
+                }
             }
         }
 
@@ -264,9 +266,9 @@ function displayItem(item){
         instructions.innerHTML = data[0].strInstructions;
         itemDisplay.appendChild(instructions);
 
-        let spacer = document.createElement('div');
-        spacer.id = "spacer";
-        itemDisplay.appendChild(spacer);
+        let spacerOne = document.createElement('div');
+        spacerOne.id = "spacer";
+        itemDisplay.appendChild(spacerOne);
 
         darkened.appendChild(itemDisplay);
         floatingBody.appendChild(darkened);

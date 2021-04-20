@@ -1,22 +1,23 @@
 $(document).ready(function(){
     slideShow();
-
 })
 
-var slideIndex = 0;
-
+var slideIndex = 1;
+var slideNum = 5;
 function slideShow(){
-    var slides = document.getElementsByClassName("slides");
+    var slides = document.getElementById("mainBody");
 
-    for (let i = 0; i < slides.length; i++){
-        slides[i].style.display = "none";  
+    for (let i = 0; i < slideNum; i++){
+        slides.style.backgroundImage = "none"; 
     }
     
-    slideIndex++;
-    if (slideIndex > slides.length){
-        slideIndex = 1
+    if (slideIndex > slideNum){
+        slideIndex = 1;
     }
-    slides[slideIndex-1].style.display = "block";  
+    console.log('url("../images/slideShow' + slideIndex + '.jpg")')
+    slides.setAttribute("style", "background-image: url(images/slideShow" + slideIndex + ".jpg)");
+    
+    slideIndex++;
     setTimeout(() => {  slideShow(); }, 3000);
 }
 

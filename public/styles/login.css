@@ -1,5 +1,5 @@
 .header{
-    background-color:rgb(255, 241, 179);
+    background-color:rgb(238, 218, 127);
     height: 6rem;
 }
 #reload > img {
@@ -49,36 +49,9 @@
 }
 #mainBody {
     height: 52.6rem;
+    background-color: black;
     overflow-y: hidden;
 }
-.slides {
-    display: none;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #logindiv {
     display: grid;
     grid-template-rows: 4rem;
