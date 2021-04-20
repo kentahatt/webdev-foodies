@@ -68,7 +68,7 @@ function login(){
     labelTwo.innerHTML = "Enter Password:";
 
     let password = document.createElement('input');
-    password.type = "text";
+    password.type = "password";
     password.setAttribute('name','loginPass');
 
     let submit = document.createElement('input');
@@ -126,7 +126,7 @@ function createAccount(){
     let labelTwo = document.createElement('label');
     labelTwo.innerHTML = "Create Password:";
     let password = document.createElement('input');
-    password.type = "text";
+    password.type = "password";
     password.setAttribute('name','createPass');
 
     let submit = document.createElement('input');

@@ -1,4 +1,7 @@
 let express = require('express');
+const nodemailer = require('nodemailer');
+
+
 let app = express();
 var bodyParser = require('body-parser');
 
@@ -73,3 +76,94 @@ app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'), function() {
     console.log(`Listening for requests on port ${app.get('port')}.`);
 }); 
+
+
+
+
+
+
+// app.post('/email', function(request, response) {
+
+//     console.log(request.body.ingredientsInfo);
+//     console.log(request.body.emailInfo);
+
+
+// });
+
+
+
+app.post('/email', function(request, response) {
+  nodemailer.createTestAccount((err, account) => {
+    if (err) {
+        console.error('Failed to create a testing account');
+        console.error(err);
+        return process.exit(1);
+    }
+  
+    console.log('Credentials obtained, sending message...');
+  
+    // NB! Store the account object values somewhere if you want
+    // to re-use the same account for future mail deliveries
+  
+    // Create a SMTP transporter object
+    let transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+          user: 'foodies.uoit@gmail.com',
+          pass: 'randyisgod'
+      }
+    });
+  
+  
+    // Message object
+    let message = {
+  
+        // Comma separated list of recipients
+        to: request.body.emailInfo,
+  
+        // Subject of the message
+        subject: ,
+  
+        // plaintext body
+        text: request.body.ingredientsInfo,
+  
+        list: {
+            // List-Help: <mailto:admin@example.com?subject=help>
+            help: 'admin@example.com?subject=help',
+  
+            // List-Unsubscribe: <http://example.com> (Comment)
+            unsubscribe: [
+                {
+                    url: 'http://example.com/unsubscribe',
+                    comment: 'A short note about this url'
+                },
+                'unsubscribe@example.com'
+            ],
+  
+            // List-ID: "comment" <example.com>
+            id: {
+                url: 'mylist.example.com',
+                comment: 'This is my awesome list'
+            }
+        }
+    };
+  
+    transporter.sendMail(message, (error, info) => {
+        if (error) {
+            console.log('Error occurred');
+            console.log(error.message);
+            return process.exit(1);
+        }
+  
+        console.log('Message sent successfully!');
+        console.log(nodemailer.getTestMessageUrl(info));
+  
+        // only needed when using pooled connections
+        transporter.close();
+    });
+  });
+
+
+});

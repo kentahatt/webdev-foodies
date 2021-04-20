@@ -275,11 +275,12 @@ function displayItem(item){
         hiddenIngredients.type = "text";
         hiddenIngredients.id = "ingredientsInfo";
         hiddenIngredients.setAttribute('name','ingredientsInfo');
-        hiddenIngredients.innerHTML = data[0].strInstructions;
+        hiddenIngredients.value = data[0].strInstructions;
 
         let email = document.createElement('input');
         email.type = "text";
         email.setAttribute('name','emailInfo');
+        email.setAttribute('id','emailInfo');
 
         let submit = document.createElement('input');
         submit.onsubmit = "return false";
