@@ -259,10 +259,36 @@
 #spacer {
     height: 7rem;
 }
+#hiddenName {
+    display: none;
+}
 #ingredientsInfo {
     display: none;
 }
+#instructionInfo {
+    display: none;
+}
 #sendMail {
-    margin-top: 15rem;
+    display: grid;
+    padding: 15px;
+    margin-top: 10rem;
     margin-left: 29rem;
+}
+#emailHeader {
+    color: rgb(26, 26, 26);
+    font-size: 150%;
+    margin-top: -6rem;
+    margin-left: -9.56rem;
+}
+#emailInfo {
+    scale: 175%;
+    width: 15rem;
+}
+#submitMail {
+    font-size: 150%;
+    width: 13rem;
+    margin-top: 3rem;
+    height: 4.5rem;
+    border-radius: 15px;
+    background-color: rgb(94, 228, 94);
 }
