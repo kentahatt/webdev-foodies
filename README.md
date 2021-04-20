@@ -18,7 +18,7 @@ Before you submit your project, modify the following table to include everyone's
 Independent Study:
 https://docs.google.com/presentation/u/1/d/1t6jAR7pdPNX9y9XLncatleKYhYhN3ylwhorYN3sDuhE/edit#slide=id.g9baafe93df_0_310
 
-## Instructions:
+## Instructions to Load:
 | type in ubuntu: at the website directory |
 | :---------------------------------------:|
 | npm install express                      |
