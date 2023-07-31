@@ -2,11 +2,11 @@
 
 Before you submit your project, modify the following table to include everyone's full name and GitHub usernames:
 
-| Group Member Name          | GitHub Username    |
-| :------------------------- |:------------------:|
-| Eric CB-Lamontagne         | caspeer1           |
-| Kenta Hattori              | callmekenta        |
-| Manmeet Choudhary          | ManmeetChoudhary   |
+| Group Member Name          | GitHub Username                |
+| :------------------------- |:------------------------------:|
+| Eric CB-Lamontagne         | caspeer1                       |
+| Kenta Hattori              | kentahatt (callmekenta)        |
+| Manmeet Choudhary          | ManmeetChoudhary               |
 
 | Work Done                                                     |
 | :------------------------------------------------------------:|
